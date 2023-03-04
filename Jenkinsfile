@@ -1,12 +1,8 @@
 pipeline {
     environment {
-
             registry = "amadeuspeterson/hello-204student"
-
             registryCredential = 'dockerhub'
-
             dockerImage=''
-
     }
     agent any
     tools {
@@ -75,22 +71,17 @@ pipeline {
             }
         }
     }
+
     post {
-
-            failure{
-
-                     mail to: 'amadeuspeterson@gmail.com',
-
-              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-
-              body: "Something is wrong with ${env.BUILD_URL}"
-
-            }
-
+        failure{
+                 mail to: 'amadeuspeterson@gmail.com',
+          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+          body: "Something is wrong with ${env.BUILD_URL}"
+        }
+        success{
+                 mail to: 'amadeuspeterson@gmail.com',
+          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+          body: "Something is wrong with ${env.BUILD_URL}"
+        }
     }
-//     post {
-//         mail to: 'amadeuspeterson@gmail.com',
-//         subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-//         body: "Something is wrong with ${env.BUILD_URL}"
-//     }
 }
