@@ -76,8 +76,21 @@ pipeline {
         }
     }
     post {
-        mail to: 'amadeuspeterson@gmail.com',
-        subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-        body: "Something is wrong with ${env.BUILD_URL}"
+
+            failure{
+
+                     mail to: 'amadeuspeterson@gmail.com',
+
+              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+
+              body: "Something is wrong with ${env.BUILD_URL}"
+
+            }
+
     }
+//     post {
+//         mail to: 'amadeuspeterson@gmail.com',
+//         subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+//         body: "Something is wrong with ${env.BUILD_URL}"
+//     }
 }
