@@ -5,7 +5,7 @@ public class Main {
 //  You can assume that all input will be perfectly formatted. No need to account for null input or bad formatting.
 //  You do NOT need to support the createUniqueID method
 //  Inputs do NOT need to be identical to my examples
-  public static void main() {
+  public static void main(String[] args) {
     System.out.println("welcome to the calculator");
     System.out.println("Enter a command:");
 
